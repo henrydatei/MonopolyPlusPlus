@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage[left=2.1cm,right=3.1cm,bottom=3cm,footskip=0.75cm,headsep=0.5cm]{geometry}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{marvosym}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[colorlinks = true, linkcolor = blue, urlcolor  = blue, citecolor = blue, anchorcolor = blue]{hyperref}
+\usepackage{ulem}
+\usepackage{parskip}
+
+\usepackage{listings}
+\definecolor{lightlightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{lila}{rgb}{0.8,0,0.8}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mygreen}{rgb}{0,0.8,0.26}
+\lstdefinestyle{html} {language=html}
+\lstset{language=html,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{lila},
+	commentstyle=\color{lightgray},
+	stringstyle=\color{mygreen}\ttfamily,
+	backgroundcolor=\color{white},
+	showstringspaces=false,
+	numbers=left,
+	numbersep=10pt,
+	numberstyle=\color{mygray}\ttfamily,
+	identifierstyle=\color{blue},
+	xleftmargin=.1\textwidth, 
+	%xrightmargin=.1\textwidth,
+	escapechar=§,
+	breaklines=true,
+	postbreak=\mbox{\space}
+}
+\lstset{literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\renewcommand*{\arraystretch}{1.4}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\SD}{SD}
+\DeclareMathOperator{\Cor}{Cor}
+
+\title{\textbf{Verbesserte Monopoly-Regeln}}
+\author{\textsc{Henry Haustein}, \textsc{Paul Schumacher}, \textsc{Clemens Haffner}}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{Standard-Regeln}
+	Wenn nicht anders gesagt, gelten die Standard-Monopoly-Regeln. 
+	
+	Alle Strafen und Gebühren gehen in die Mitte und der Spieler, der auf das Feld \textit{Frei parken} kommt, bekommt das bisher in der Mitte gesammelte Geld. 
+	
+	Kommt ein Spieler direkt auf \textit{Los}, so erhält der das doppelte Geld. 
+	
+	Ist ein Spieler im Knast, so muss er für jede Transaktion, die er durchführt, zusätzlich 50\% Schutzgeld in die Mitte legen. Bei 0,5 wird aufgerundet. Ein Spieler kann maximal 3 Runden im Knast sitzen, in jeder Runde darf er nur einmal würfeln, beim Pasch kommt er raus. Er kann sich vorher für 50\EUR\, freikaufen, aber wenn er nach 3 Runden immer noch im Knast sitzt, muss er sich für 100\EUR\, freikaufen.
+	
+	Häuser und Hotels können nur mit 50\% Preisabschlag verkauft werden.
+	
+	Fusionen von Spielern sind verboten.
+	
+	\section{Versteigerung, wenn die Straße noch frei ist}
+	\label{versteigerung}
+	Sobald ein Spieler auf eine noch freie Straße kommt, wird diese versteigert. Die Versteigerung ist blind, das heißt die Gebote werden verdeckt auf Zettel geschrieben und die Bank bestimmt den Spieler, der das höchste Gebot abgegeben hat. Dieser Spieler bekommt die Straße. Trotzdem müssen alle Spieler - auch diese, die nicht den Zuschlag bekommen haben - ihr Gebot bezahlen. Das Geld geht an die Bank.
+	
+	Sollte es zu einem Gleichstand zwischen den 2 (oder mehr) höchstbietenden Spielern kommen, so muss kein Spieler Geld bezahlen und es findet eine neue Bietrunde zwischen den Höchstbietenden statt. Diesmal gibt es aber ein Mindestgebot in Höhe des Maximalgebotes der letzten Bietrunde.
+	
+	Sollten alle Spieler 0 Euro bieten, so verbleibt die Straße bei der Bank und es findet keine neue Bietrunde statt.
+	
+	\section{private Versteigerung, privater Handel}
+	Besitzt ein Spieler eine Straße, so kann er diese Straße öffentlich zur Versteigerung anbieten. Privater Handel zwischen den Spielern ist untersagt. Bei einer öffentlichen Versteigerung gelten die selben Regeln wie bei Abschnitt \ref{versteigerung}, nur dass der Spieler, der die Straße versteigern will, die Rolle der Bank einnimmt.
+	
+	Es ist auch möglich einen Mindestpreis für diese Versteigerung zu setzen, aber wenn kein Gebot über das Mindestgebot kommt oder keine Gebote abgegeben werden, so bleibt die Straße beim Spieler und dieser muss 50\% des Mindestpreises als Strafe in die Mitte legen.
+	
+	
+\end{document}
